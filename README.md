@@ -7,7 +7,7 @@ macOS and Linux  see [Install](#install).
 
 | Path | Install to | Contents |
 |------|-----------|----------|
-| `nvim/` | `~/.config/nvim/` | lazy.nvim setup, 55 plugins, HDL LSP + linting + snippets |
+| `nvim/` | `~/.config/nvim/` | lazy.nvim setup, 54 plugins, HDL LSP + linting + snippets |
 | `tmux/tmux.conf` | `~/.tmux.conf` | prefix `C-a`, 7 plugins + tpm, tokyo-night theme |
 | `tmux/config/` | `~/.config/tmux/` | cheatsheet + its toggle script |
 
@@ -144,6 +144,42 @@ tmux kill-server 2>/dev/null; tmux new -s main
 - `Option+T` opens a new tab → keybindings loaded
 - `Option+\` opens the cheatsheet sidebar → `~/.config/tmux` linked
 - `Ctrl+A` then `U` opens a URL picker → plugins installed
+
+## nvim plugins
+
+54 plugins, all pinned in `lazy-lock.json`. A fresh clone installs these exact
+versions. Managed by lazy.nvim, which bootstraps itself on first launch.
+
+**Core / libraries** (4)  
+`lazy.nvim` · `plenary.nvim` · `nui.nvim` · `nvim-web-devicons`
+
+**LSP & completion** (15)  
+`nvim-lspconfig` · `mason.nvim` · `mason-lspconfig.nvim` · `neodev.nvim` · `fidget.nvim` · `nvim-cmp` · `cmp-nvim-lsp` · `cmp-buffer` · `cmp-path` · `cmp-cmdline` · `cmp_luasnip` · `LuaSnip` · `friendly-snippets` · `lspkind.nvim` · `nvim-autopairs`
+
+**Lint & format** (2)  
+`nvim-lint` · `conform.nvim`
+
+**Navigation & search** (10)  
+`telescope.nvim` · `telescope-fzf-native.nvim` · `telescope-file-browser.nvim` · `telescope-ui-select.nvim` · `harpoon` · `flash.nvim` · `neo-tree.nvim` · `outline.nvim` · `nvim-spectre` · `nvim-bqf`
+
+**Editing** (5)  
+`Comment.nvim` · `nvim-surround` · `mini.ai` · `vim-illuminate` · `todo-comments.nvim`
+
+**Git** (2)  
+`gitsigns.nvim` · `git-blame.nvim`
+
+**UI** (10)  
+`lualine.nvim` · `bufferline.nvim` · `alpha-nvim` · `which-key.nvim` · `indent-blankline.nvim` · `rainbow-delimiters.nvim` · `nvim-notify` · `dressing.nvim` · `trouble.nvim` · `persistence.nvim`
+
+**Treesitter** (3)  
+`nvim-treesitter` · `nvim-treesitter-context` · `nvim-treesitter-textobjects`
+
+**Themes** (3)  
+`tokyonight.nvim` · `catppuccin` · `nightfox.nvim`
+
+Language servers are installed by Mason (`lua-language-server` automatically;
+HDL servers via cargo, see step 8). Full keybindings and LSP details are in
+`nvim/README.md`.
 
 ## tmux keys
 
