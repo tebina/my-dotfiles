@@ -8,7 +8,7 @@ macOS and Linux  see [Install](#install).
 | Path | Install to | Contents |
 |------|-----------|----------|
 | `nvim/` | `~/.config/nvim/` | lazy.nvim setup, 54 plugins, HDL LSP + linting + snippets |
-| `tmux/tmux.conf` | `~/.tmux.conf` | prefix `C-a`, 7 plugins + tpm, tokyo-night theme |
+| `tmux/tmux.conf` | `~/.tmux.conf` | prefix `C-a`, 8 plugins + tpm, tokyo-night theme |
 | `tmux/config/` | `~/.config/tmux/` | cheatsheet + its toggle script |
 
 `nvim/README.md` documents the Neovim side in full : prerequisites, keybindings,
@@ -190,6 +190,7 @@ Prefix is `C-a`. Tab and popup bindings use `M-` (Option) with **no prefix**.
 | `M-t` / `M-1..9` / `M-h` `M-l` / `M-w` | new tab / go to tab / prev-next / close |
 | `M-p` | fuzzy window palette across all sessions |
 | `M-g` | scratch shell popup |
+| `M-c` | copy mode (vi keys, `y` copies to system clipboard and exits) |
 | `M-\` / `M-?` | cheatsheet sidebar / popup |
 | `C-a u` `C-a Tab` `C-a F` `C-a /` | URLs · extrakto · thumbs hints · search scrollback |
 | `C-a \|` `C-a -` `C-a m` | split right / down / zoom |
@@ -200,7 +201,7 @@ Full list: `tmux/config/cheatsheet.txt`, or press `M-\` inside tmux.
 ### tmux plugins
 
 `tpm` · `vim-tmux-navigator` · `tmux-resurrect` · `tmux-fzf-url` · `extrakto` ·
-`tmux-fuzzback` · `tmux-thumbs` · `tmux-tokyo-night`
+`tmux-fuzzback` · `tmux-thumbs` · `tmux-yank` · `tmux-tokyo-night`
 
 ## Gotchas
 
