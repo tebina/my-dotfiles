@@ -1,0 +1,40 @@
+ [1;36mTABS[0m  [2mno prefix[0m
+   [1;37mM-t       [0m new tab
+   [1;37mM-1 .. 9  [0m go to tab N
+   [1;37mM-h / M-l [0m prev / next
+   [1;37mM-,       [0m rename tab
+   [1;37mM-w       [0m close tab
+
+ [1;36mPOPUPS[0m  [2mno prefix[0m
+   [1;37mM-p       [0m window palette
+   [1;37mM-g       [0m scratch shell
+   [1;37mM-?       [0m this sheet
+   [1;37mM-\       [0m toggle sidebar
+
+ [1;35mGRAB TEXT[0m  [2mprefix C-a[0m
+   [1;37mu         [0m pick URLs
+   [1;37mTab       [0m extrakto fuzzy
+   [1;37mF         [0m thumbs hints
+   [1;37m/         [0m search scrollback
+   [1;37m[         [0m copy mode (v y)
+
+ [1;33mPANES[0m  [2mprefix C-a[0m
+   [1;37m|         [0m split right
+   [1;37m-         [0m split down
+   [1;37mh j k l   [0m resize
+   [1;37mC-h j k l [0m move (vim)
+   [1;37mm         [0m zoom toggle
+   [1;37mx         [0m close pane
+
+ [1;32mSESSIONS[0m  [2mprefix C-a[0m
+   [1;37md         [0m detach
+   [1;37ms         [0m list sessions
+   [1;37m$         [0m rename session
+   [1;37mC-s       [0m save layout
+   [1;37mC-r       [0m restore layout
+
+ [1;31mMISC[0m  [2mprefix C-a[0m
+   [1;37mr         [0m reload config
+   [1;37m?         [0m ALL keybindings
+
+ [2mM- = Option key[0m

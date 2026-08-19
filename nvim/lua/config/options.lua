@@ -1,48 +1,144 @@
-vim.g.mapleader = " "
+-- ╔══════════════════════════════════════════════════════════════════════════╗
+-- ║                           Editor Options                                  ║
+-- ╚══════════════════════════════════════════════════════════════════════════╝
 
-vim.scriptencoding = "utf-8"
-vim.opt.encoding = "utf-8"
-vim.opt.fileencoding = "utf-8"
+local opt = vim.opt
 
-vim.opt.number = true
+-- ┌──────────────────────────────────────────────────────────────────────────┐
+-- │ Line Numbers & Display                                                   │
+-- └──────────────────────────────────────────────────────────────────────────┘
+opt.number = true
+opt.relativenumber = true
+opt.signcolumn = "yes"
+opt.cursorline = true
+opt.termguicolors = true
+opt.showmode = false
+opt.cmdheight = 1
+opt.laststatus = 3            -- Global statusline
+opt.scrolloff = 8
+opt.sidescrolloff = 8
+opt.wrap = false              -- HDL files are often wide
+opt.linebreak = true
+opt.colorcolumn = "100"       -- Common line limit for Verilog
 
-vim.opt.title = true
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.hlsearch = true
-vim.opt.backup = false
-vim.opt.showcmd = true
-vim.opt.cmdheight = 1
-vim.opt.laststatus = 2
-vim.opt.expandtab = true
-vim.opt.scrolloff = 10
-vim.opt.shell = "fish"
-vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
-vim.opt.inccommand = "split"
-vim.opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
-vim.opt.smarttab = true
-vim.opt.breakindent = true
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
-vim.opt.wrap = false -- No Wrap lines
-vim.opt.backspace = { "start", "eol", "indent" }
-vim.opt.path:append({ "**" }) -- Finding files - Search down into subfolders
-vim.opt.wildignore:append({ "*/node_modules/*" })
-vim.opt.splitbelow = true -- Put new windows below current
-vim.opt.splitright = true -- Put new windows right of current
-vim.opt.splitkeep = "cursor"
-vim.opt.mouse = ""
+-- ┌──────────────────────────────────────────────────────────────────────────┐
+-- │ Indentation (Verilog/SystemVerilog Standard)                             │
+-- └──────────────────────────────────────────────────────────────────────────┘
+opt.tabstop = 2               -- Common for Verilog
+opt.shiftwidth = 2
+opt.softtabstop = 2
+opt.expandtab = true          -- Use spaces
+opt.smartindent = true
+opt.autoindent = true
+opt.cindent = false           -- Use Verilog-specific indenting
 
--- Undercurl
-vim.cmd([[let &t_Cs = "\e[4:3m"]])
-vim.cmd([[let &t_Ce = "\e[4:0m"]])
+-- ┌──────────────────────────────────────────────────────────────────────────┐
+-- │ Search                                                                   │
+-- └──────────────────────────────────────────────────────────────────────────┘
+opt.ignorecase = true
+opt.smartcase = true
+opt.hlsearch = true
+opt.incsearch = true
+opt.inccommand = "split"
 
--- Add asterisks in block comments
-vim.opt.formatoptions:append({ "r" })
+-- ┌──────────────────────────────────────────────────────────────────────────┐
+-- │ Files & Backup                                                           │
+-- └──────────────────────────────────────────────────────────────────────────┘
+opt.swapfile = false
+opt.backup = false
+opt.undofile = true
+opt.undodir = vim.fn.stdpath("data") .. "/undo"
+opt.autoread = true
+opt.hidden = true
 
-vim.cmd([[au BufNewFile,BufRead *.astro setf astro]])
-vim.cmd([[au BufNewFile,BufRead Podfile setf ruby]])
+-- ┌──────────────────────────────────────────────────────────────────────────┐
+-- │ Completion                                                               │
+-- └──────────────────────────────────────────────────────────────────────────┘
+opt.completeopt = { "menu", "menuone", "noselect" }
+opt.pumheight = 15
+opt.pumblend = 10
 
-if vim.fn.has("nvim-0.8") == 1 then
-	vim.opt.cmdheight = 0
+-- ┌──────────────────────────────────────────────────────────────────────────┐
+-- │ Split Behavior                                                           │
+-- └──────────────────────────────────────────────────────────────────────────┘
+opt.splitbelow = true
+opt.splitright = true
+opt.splitkeep = "screen"
+
+-- ┌──────────────────────────────────────────────────────────────────────────┐
+-- │ Performance                                                              │
+-- └──────────────────────────────────────────────────────────────────────────┘
+opt.updatetime = 200
+opt.timeoutlen = 300
+opt.redrawtime = 1500
+opt.lazyredraw = false
+
+-- ┌──────────────────────────────────────────────────────────────────────────┐
+-- │ Folding (useful for large HDL modules)                                   │
+-- └──────────────────────────────────────────────────────────────────────────┘
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
+
+-- ┌──────────────────────────────────────────────────────────────────────────┐
+-- │ Clipboard                                                                │
+-- └──────────────────────────────────────────────────────────────────────────┘
+opt.clipboard = "unnamedplus"
+
+-- ┌──────────────────────────────────────────────────────────────────────────┐
+-- │ Misc                                                                     │
+-- └──────────────────────────────────────────────────────────────────────────┘
+opt.mouse = "a"
+opt.mousemoveevent = true
+opt.virtualedit = "block"
+opt.fillchars = {
+  foldopen = "-",
+  foldclose = "+",
+  fold = " ",
+  foldsep = " ",
+  diff = "/",
+  eob = " ",
+}
+opt.list = true
+opt.listchars = {
+  tab = "→ ",
+  trail = "·",
+  extends = "»",
+  precedes = "«",
+  nbsp = "␣",
+}
+
+-- ┌──────────────────────────────────────────────────────────────────────────┐
+-- │ Grep (use ripgrep if available)                                          │
+-- └──────────────────────────────────────────────────────────────────────────┘
+if vim.fn.executable("rg") == 1 then
+  opt.grepprg = "rg --vimgrep --smart-case --hidden"
+  opt.grepformat = "%f:%l:%c:%m"
 end
+
+-- ┌──────────────────────────────────────────────────────────────────────────┐
+-- │ File Type Associations                                                   │
+-- └──────────────────────────────────────────────────────────────────────────┘
+vim.filetype.add({
+  extension = {
+    v = "verilog",
+    vh = "verilog",
+    sv = "systemverilog",
+    svh = "systemverilog",
+    svi = "systemverilog",
+    sva = "systemverilog",
+    svp = "systemverilog",
+    f = "verilog",             -- Verilog filelist
+    vf = "verilog",
+    vinc = "verilog",
+  },
+  filename = {
+    [".svlsrc"] = "json",       -- svls config file
+  },
+  pattern = {
+    [".*%.v%..*"] = "verilog",
+    [".*%.sv%..*"] = "systemverilog",
+  },
+})
