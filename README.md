@@ -1,7 +1,7 @@
 # my-dotfiles
 
 Neovim + tmux config for SystemVerilog/Verilog (FPGA/ASIC) work.
-macOS and Linux — see [Install](#install).
+macOS and Linux  see [Install](#install).
 
 ## What's here
 
@@ -11,7 +11,7 @@ macOS and Linux — see [Install](#install).
 | `tmux/tmux.conf` | `~/.tmux.conf` | prefix `C-a`, 7 plugins + tpm, tokyo-night theme |
 | `tmux/config/` | `~/.config/tmux/` | cheatsheet + its toggle script |
 
-`nvim/README.md` documents the Neovim side in full — prerequisites, keybindings,
+`nvim/README.md` documents the Neovim side in full : prerequisites, keybindings,
 snippets, LSP config, troubleshooting.
 
 ## Install
@@ -55,7 +55,7 @@ cd ~/my-dotfiles
 
 ### 3. Back up any existing config
 
-Skip nothing here — `ln` does **not** replace an existing directory, it silently
+Skip nothing here  `ln` does **not** replace an existing directory, it silently
 creates the link *inside* it.
 
 ```sh
@@ -93,7 +93,7 @@ when it worked.
 
 ### 6. Build tmux-thumbs
 
-The only plugin without a prebuilt binary — it compiles from Rust.
+The only plugin without a prebuilt binary  it compiles from Rust.
 
 ```sh
 brew install rust                      # or: sudo apt install cargo
@@ -172,5 +172,5 @@ Full list: `tmux/config/cheatsheet.txt`, or press `M-\` inside tmux.
 - Alacritty needs `option_as_alt = "Both"` or none of the `M-` bindings fire
   on macOS.
 - `cheatsheet.txt` contains real ANSI escape bytes. Edit it with `printf`
-  or a script — a plain heredoc drops the `\033` and you get literal `[1;36m`
+  or a script  a plain heredoc drops the `\033` and you get literal `[1;36m`
   on screen.
